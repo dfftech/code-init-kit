@@ -1,0 +1,11 @@
+{
+  "strict": {
+    "text-font-family": "SourceSansPro",
+    "text-heading-1-font-family": "gravtrac",
+    "text-heading-2-font-family": "gravtrac",
+    "text-heading-3-font-family": "gravtrac",
+    "text-heading-4-font-family": "gravtrac",
+    "text-heading-5-font-family": "gravtrac",
+    "text-heading-6-font-family": "gravtrac"
+  }
+}
