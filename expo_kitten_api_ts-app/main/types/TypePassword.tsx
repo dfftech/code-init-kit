@@ -38,13 +38,13 @@ const TypePassword = ({
         name={attr}
         id={id}
         fullWidth
-        render={({ onChange, onBlur, value }: any) => (
+        render={(props: any) => (
           <Input
            // id={id}
             label={label}
-            onChangeText={onChange}
-            onBlur={onBlur}
-            value={value}
+            onChangeText={props.field.onChange}
+            onBlur={props.field.onBlur}
+            value={props.field.value}
             accessoryRight={renderIcon}
             secureTextEntry={securePassword}
           />

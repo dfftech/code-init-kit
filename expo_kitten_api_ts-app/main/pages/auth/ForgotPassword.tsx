@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { useForm } from "react-hook-form";
-import TypeInput from "../../custom-components/TypeInput";
+import TypeInput from "../../types/TypeInput";
 import { ScrollView, View, Dimensions } from "react-native";
 import { unSecurePost } from "../../app/Http";
 import AuthLayout from "../../modules/auth/AuthLayout";

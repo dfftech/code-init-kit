@@ -26,8 +26,8 @@ const TypeInput = ({
         name={attr}
         id={id}
         fullWidth
-        render={({ onChange, onBlur, value }: any) => (
-          <Input label={label} onChangeText={onChange} onBlur={onBlur} value={value}  />
+        render={(props: any) => (
+          <Input label={label} onChangeText={props.field.onChange} onBlur={props.field.onBlur} value={props.field.value}  />
         )}
         rules={rules}
         defaultValue={defaultValue}

@@ -2,8 +2,6 @@ import * as React from "react";
 import { View } from "react-native";
 
 import { Controller, useForm } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
-//import { TextInput } from "react-native";
 import { CheckBox, Input, Text } from "@ui-kitten/components";
 
 const TypeCheckBox = ({
@@ -19,6 +17,7 @@ const TypeCheckBox = ({
   disabled,
   ...rest
 }: any) => {
+
   return (
     <View style={{ paddingVertical: 4 }}>
       <Controller
@@ -26,8 +25,8 @@ const TypeCheckBox = ({
         name={attr}
         id={id}
         fullWidth
-        render={({ onChange, onBlur, value }: any) => (
-          <CheckBox  checked={value} onBlur={onBlur} onChange={onChange} />
+        render={( props: any) => (
+          <CheckBox  checked={props.field.value}  onChange={props.field.onChange} />
         )}
         defaultValue={defaultValue}
         {...rest}

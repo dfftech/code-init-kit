@@ -1,9 +1,9 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { View } from "react-native";
-import TypeInput from "../../custom-components/TypeInput";
+import TypeInput from "../../types/TypeInput";
 import { useNavigation } from "@react-navigation/native";
 import AuthLayout from "./AuthLayout";
-import TypePassword from "../../custom-components/TypePassword";
+import TypePassword from "../../types/TypePassword";
 
 const ResetPasswordForm = ({ control, errors, auth }: any) => {
   const navigation = useNavigation();

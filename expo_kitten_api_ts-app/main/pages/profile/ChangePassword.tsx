@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, SafeAreaView, ScrollView, Dimensions } from "react-native";
 
-import TypePassword from "../../custom-components/TypePassword";
+import TypePassword from "../../types/TypePassword";
 import { messageEmit, sessionUserEvent } from "../../app/AppEvent";
 
 import { useForm } from "react-hook-form";

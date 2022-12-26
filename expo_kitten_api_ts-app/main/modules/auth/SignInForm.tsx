@@ -1,10 +1,10 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { View } from "react-native";
-import TypeInput from "../../custom-components/TypeInput";
-import TypePassword from "../../custom-components/TypePassword";
+import TypeInput from "../../types/TypeInput";
+import TypePassword from "../../types/TypePassword";
 import { Text } from "@ui-kitten/components";
 import { useNavigation } from "@react-navigation/native";
-import TypeCheckBox from "../../custom-components/TypeCheckBox";
+import TypeCheckBox from "../../types/TypeCheckBox";
 
 const SignInForm = ({ control, errors, auth }: any) => {
   const navigation = useNavigation();
