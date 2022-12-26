@@ -1,10 +1,47 @@
 // import StorageService from "../storage/StorageNative";
-const StorageService: any= {}
-const APP_ID = "APP-STORE";
 
+import AsyncStorage from "@react-native-community/async-storage";
+const APP_ID = "APP_STORE";
+class StorageService {
+  static db: any = {};
+  static init() {
+    AsyncStorage.getAllKeys().then( (keys: any[]) => {
+      keys.map((key: string) =>
+          AsyncStorage.getItem(key)
+              .then((data) => {
+                StorageService.db[key] = data;
+                console.log("StorageService.db", StorageService.db);
+              })
+        );
+    });
+  }
 
+  static setItem(key: string, value: any) {
+    AsyncStorage.setItem(key, value).then(() => {}).catch((e) => {console.error(e)});
+     this.db[key] = value;
+    }
 
-const setData = async (key: string, value: any) => {
+  static getItem(key: string) {
+      return this.db[key];
+    }
+
+  static getAll() {
+      return this.db;
+  }
+
+  static removeItem(key: string) {
+    AsyncStorage.removeItem(key).then(() => {}).catch((e) => {console.error(e)});
+      delete this.db[key];
+    }
+
+  static clearAll() {
+    AsyncStorage.clear().then(() => {}).catch((e) => {console.error(e)});
+      this.db = {};
+    }
+}
+StorageService.init();
+
+const setData =  (key: string, value: any) => {
   key = APP_ID + "-" + key;
   if (value) {
     value = typeof value == "string" ? value : JSON.stringify(value);
@@ -40,20 +77,19 @@ const removeData = (key: string) => {
   }
 };
 
-const clearData = async () => {
+const clearData = () => {
   let rememberDetails = getData("RememberMe");
   let resetTime = getData("reset-time");
   try {
-    // TODO
-    await StorageService.clear();
+     StorageService.clearAll();
   } catch (error) {
     console.log(error);
   }
   if (rememberDetails) {
-    await setData("RememberMe", rememberDetails);
+     setData("RememberMe", rememberDetails);
   }
   if (resetTime !== "null" && resetTime != null) {
-    await setData("reset-time", resetTime);
+     setData("reset-time", resetTime);
   }
 };
 

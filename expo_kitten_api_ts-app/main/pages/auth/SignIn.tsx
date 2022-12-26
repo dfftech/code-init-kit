@@ -17,18 +17,19 @@ const SignIn = (props: any) => {
   const navigation = useNavigation();
   const [loadingIndicator, setLoadingIndicator] = React.useState(false);
 
-  const onFormSubmit = async (data: any) => {
+  const onFormSubmit =  (data: any) => {
     data.provider = "email";
     console.log(data);
+    AppStorage.setData("RememberMe", data);
     setLoadingIndicator(true);
     unSecurePost("/auth/signin", data, true).subscribe(async (resData) => {
       console.log("Resp Data: ", resData);
       setLoadingIndicator(false);
       if (resData != null) {
         if (auth.rememberMe === true) {
-          await AppStorage.setData("RememberMe", data);
+           AppStorage.setData("RememberMe", data);
         } else {
-          await AppStorage.removeData("RememberMe");
+           AppStorage.removeData("RememberMe");
         }
         navigation.navigate("AppHome",{});
       }

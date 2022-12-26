@@ -1,8 +1,8 @@
 import * as React from "react";
 import { View } from "react-native";
 
-import { Controller, useForm } from "react-hook-form";
-import { CheckBox, Input, Text } from "@ui-kitten/components";
+import { Controller } from "react-hook-form";
+import { CheckBox} from "@ui-kitten/components";
 
 const TypeCheckBox = ({
   id,
