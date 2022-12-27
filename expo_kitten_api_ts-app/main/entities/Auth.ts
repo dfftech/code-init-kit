@@ -15,7 +15,7 @@ export class Auth {
   email = null;
   userid = "";
   username = "";
-  password = null;
+  password = "";
   rememberMe = false;
   provider = "email";
 }

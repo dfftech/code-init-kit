@@ -14,7 +14,10 @@ import { default as theme } from "../../theme.json";
 //   DefaultTheme as PaperDefaultTheme,
 //   DarkTheme as PaperDarkTheme,
 // } from "react-native-paper";
-import { DarkTheme as NavigateDarkTheme, DefaultTheme as NavigateDefaultTheme } from "@react-navigation/native";
+import {
+  DarkTheme as NavigateDarkTheme,
+  DefaultTheme as NavigateDefaultTheme,
+} from "@react-navigation/native";
 import ProgressBar from "../shared/ProgressBar";
 const DefaultTheme = {
   ...NavigateDefaultTheme,
@@ -32,14 +35,14 @@ const DarkTheme = {
 
 const Main = () => {
   const colorScheme = UseColorScheme();
-  const theme = colorScheme === "dark" ? DarkTheme : DefaultTheme;
+  const theme = colorScheme === "dark" ? { ...eva.dark, ...DarkTheme } : { ...eva.light, ...DefaultTheme };
   return (
     <>
       <IconRegistry icons={EvaIconsPack} />
-      <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }} >
+      <ApplicationProvider {...eva} theme={theme} >
         <ProgressBar />
         <AuthProvider>
-          <AppRouter theme={DefaultTheme} />
+          <AppRouter theme={theme} />
         </AuthProvider>
         <Message />
       </ApplicationProvider>

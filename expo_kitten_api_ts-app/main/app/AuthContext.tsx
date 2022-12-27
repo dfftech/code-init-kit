@@ -1,13 +1,14 @@
 import React, { useState, useContext, useEffect, useCallback } from "react";
 import AppStorage from "./AppStorage";
 import { sessionUserEmit } from "./AppEvent";
+import {useNavigation} from "@react-navigation/native";
 
 export const AuthContext = React.createContext({
   sessionUser: AppStorage.getData("user"),
   setSessionUserCall: () => {},
 });
 
-export const AuthProvider = ({ navigation, children }: any) => {
+export const AuthProvider = ({navigation, children }: any) => {
   const authContext = useContext(AuthContext);
   const [sessionUser, setSessionUser] = useState(authContext.sessionUser);
 
@@ -22,7 +23,7 @@ export const AuthProvider = ({ navigation, children }: any) => {
   }, [sessionUser]);
 
   useEffect(() => {
-    console.log("history change:", navigation);
+    console.log("history change :::: ", navigation);
     if (sessionUser && new Date().getTime() > new Date(sessionUser.passwordExp).getTime()) {
       navigation.navigate(`ChangePassword`);
       return;

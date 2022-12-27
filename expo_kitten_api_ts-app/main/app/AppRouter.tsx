@@ -8,7 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import ResetPassword from "../pages/auth/ResetPassword";
 import Home from "../pages/dashboard/Home";
 import Dashboard from "../pages/dashboard/Dashboard";
-import {Divider, Drawer, DrawerItem, IndexPath, Text} from "@ui-kitten/components";
+import {Divider, Drawer, DrawerItem, IndexPath, Text, useTheme} from "@ui-kitten/components";
 import AppStorage from "./AppStorage";
 
 const Stack = createDrawerNavigator();
@@ -18,11 +18,12 @@ function AppRouter({ theme } : any) {
     <NavigationContainer linking={{enabled: true, prefixes:[]}} theme={theme}>
       <Stack.Navigator
           screenOptions={{
-              headerShown: false
+              headerShown: false,
+              headerTitleAlign: "center"
           }}
         initialRouteName="SignIn"
         defaultStatus={'closed'}
-        drawerContent={() => null}
+       // drawerContent={() => null}
       >
         <Stack.Screen name="SignIn" component={SignIn} options={{ title: "Sign In" }} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ title: "Forgot Password" }} />
@@ -34,11 +35,16 @@ function AppRouter({ theme } : any) {
 }
 
 const AppDrawer = (props: any) => {
+    const theme = useTheme();
   const isWeb = Platform && Platform.OS === "web" ? true : false;
+  console.log(props)
   return (
     <Stack.Navigator
+        {...props}
         screenOptions={{
-            headerShown: false
+            style: { backgroundColor: 'red' },
+            headerShown: true,
+            headerTintColor: theme['color-primary-default'],
         }}
       initialRouteName="Dashboard"
       defaultStatus={'closed'}
@@ -50,17 +56,17 @@ const AppDrawer = (props: any) => {
   );
 };
 
-const DrawerContent = ({ navigation, state }: any) => (
+const DrawerContent = ( props: any) => (
   <SafeAreaView>
       <Text style={{ padding: 8 }} category={"h4"}> {"AppName"}</Text>
     <Drawer>
-      <DrawerItem title="DashBoard" onPress={() => navigation.navigate("Dashboard")} />
-      <DrawerItem title="Home" onPress={() => navigation.navigate("Home")} />
+      <DrawerItem title="DashBoard" onPress={() => props.navigation.navigate("Dashboard")} />
+      <DrawerItem title="Home" onPress={() => props.navigation.navigate("Home")} />
       <DrawerItem
         title="Sign Out"
         onPress={async () => {
           await AppStorage.clearData();
-          navigation.navigate("SignIn");
+            props.navigation.navigate("SignIn");
         }}
       />
     </Drawer>

@@ -11,7 +11,8 @@ const Home = (props: any) => {
   const PageHeader = () => (
     <TopNavigation
         alignment="center"
-       // accessoryLeft={() => DrawerAction(navigation)} title={() => PageTitle("Home")}
+     //  accessoryLeft={() => DrawerAction(navigation)}
+        title={() => PageTitle("Home")}
     />
   );
 
