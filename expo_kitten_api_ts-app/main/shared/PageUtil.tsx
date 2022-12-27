@@ -13,7 +13,7 @@ export const DrawerAction = (navigation: any) => (
   <TopNavigationAction icon={BackIcon} onPress={() => OpenDrawer(navigation)} />
 );
 export const PageTitle = (name: string) => (
-  <Text category="h3" status="primary">
+  <Text category="h4" status="primary">
     {name}
   </Text>
 );

@@ -39,7 +39,7 @@ const Main = () => {
       <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }} >
         <ProgressBar />
         <AuthProvider>
-          <AppRouter theme={theme} />
+          <AppRouter theme={DefaultTheme} />
         </AuthProvider>
         <Message />
       </ApplicationProvider>

@@ -1,22 +1,25 @@
 import React from "react";
 // import { Dimensions } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { Platform, SafeAreaView } from "react-native";
+import {Platform, SafeAreaView} from "react-native";
 import SignIn from "../pages/auth/SignIn";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import { NavigationContainer } from "@react-navigation/native";
 import ResetPassword from "../pages/auth/ResetPassword";
 import Home from "../pages/dashboard/Home";
 import Dashboard from "../pages/dashboard/Dashboard";
-import { Divider, Drawer, DrawerItem, IndexPath } from "@ui-kitten/components";
+import {Divider, Drawer, DrawerItem, IndexPath, Text} from "@ui-kitten/components";
 import AppStorage from "./AppStorage";
 
 const Stack = createDrawerNavigator();
 
 function AppRouter({ theme } : any) {
   return (
-    <NavigationContainer theme={theme}>
+    <NavigationContainer linking={{enabled: true, prefixes:[]}} theme={theme}>
       <Stack.Navigator
+          screenOptions={{
+              headerShown: false
+          }}
         initialRouteName="SignIn"
         defaultStatus={'closed'}
         drawerContent={() => null}
@@ -34,6 +37,9 @@ const AppDrawer = (props: any) => {
   const isWeb = Platform && Platform.OS === "web" ? true : false;
   return (
     <Stack.Navigator
+        screenOptions={{
+            headerShown: false
+        }}
       initialRouteName="Dashboard"
       defaultStatus={'closed'}
       drawerContent={(props: any) => <DrawerContent {...props} />}
@@ -46,6 +52,7 @@ const AppDrawer = (props: any) => {
 
 const DrawerContent = ({ navigation, state }: any) => (
   <SafeAreaView>
+      <Text style={{ padding: 8 }} category={"h4"}> {"AppName"}</Text>
     <Drawer>
       <DrawerItem title="DashBoard" onPress={() => navigation.navigate("Dashboard")} />
       <DrawerItem title="Home" onPress={() => navigation.navigate("Home")} />

@@ -11,7 +11,7 @@ const Dashboard = (props: any) => {
   const PageHeader = () => (
     <TopNavigation
       alignment="center"
-      accessoryLeft={() => DrawerAction(navigation)}
+      //accessoryLeft={() => DrawerAction(navigation)}
       title={() => PageTitle("DashBoard")}
     />
   );

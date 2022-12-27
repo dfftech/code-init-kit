@@ -9,7 +9,10 @@ const Home = (props: any) => {
   const [id, setId] = useState(null);
 
   const PageHeader = () => (
-    <TopNavigation alignment="center" accessoryLeft={() => DrawerAction(navigation)} title={() => PageTitle("Home")} />
+    <TopNavigation
+        alignment="center"
+       // accessoryLeft={() => DrawerAction(navigation)} title={() => PageTitle("Home")}
+    />
   );
 
   useFocusEffect(
@@ -25,7 +28,7 @@ const Home = (props: any) => {
     <SafeAreaView>
 
       <Card header={PageHeader} style={{ margin: 8 }}>
-        <Text> Text </Text>
+        <Text> {"Text"} </Text>
       </Card>
     </SafeAreaView>
   );
