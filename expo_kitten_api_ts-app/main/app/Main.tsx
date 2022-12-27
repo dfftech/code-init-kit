@@ -5,7 +5,7 @@ import AppRouter from "./AppRouter";
 import Message from "../shared/Message";
 import { AuthProvider } from "./AuthContext";
 import * as eva from "@eva-design/eva";
-import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
+import {ApplicationProvider, IconRegistry, Text} from "@ui-kitten/components";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import { default as mapping } from "../../mapping.json";
 import { default as theme } from "../../theme.json";
@@ -32,16 +32,14 @@ const DarkTheme = {
 
 const Main = () => {
   const colorScheme = UseColorScheme();
-  // const theme = colorScheme === "dark" ? DarkTheme : DefaultTheme;
-  //const theme = DefaultTheme;
-
+  const theme = colorScheme === "dark" ? DarkTheme : DefaultTheme;
   return (
     <>
       <IconRegistry icons={EvaIconsPack} />
       <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }} >
         <ProgressBar />
         <AuthProvider>
-          <AppRouter theme={DefaultTheme} />
+          <AppRouter theme={theme} />
         </AuthProvider>
         <Message />
       </ApplicationProvider>

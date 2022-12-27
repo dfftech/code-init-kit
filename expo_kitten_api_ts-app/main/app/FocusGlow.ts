@@ -11,7 +11,7 @@ textarea:focus, select:focus, input:focus, button:focus {
 }
 `;
 
-export const injectWebCss = (f?: any) => {
+export const injectWebCss = () => {
   // Only on web
   if (!Platform || Platform.OS !== "web") return;
   if (Platform && Platform.OS === "web") {
@@ -20,5 +20,5 @@ export const injectWebCss = (f?: any) => {
     return document.head.append(style);
   }
 };
-
+//
 injectWebCss();

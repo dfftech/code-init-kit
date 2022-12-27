@@ -26,9 +26,9 @@ const TypePassword = ({
   };
 
   const renderIcon = (props: any) => (
-    <TouchableWithoutFeedback onPress={toggleSecureEntry}>
-      <Icon {...props} name={securePassword ? "eye-off" : "eye"} />
-    </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={toggleSecureEntry}>
+        <Icon {...props} name={securePassword ? 'eye-off' : 'eye'}/>
+      </TouchableWithoutFeedback>
   );
 
   return (
@@ -42,10 +42,10 @@ const TypePassword = ({
           <Input
            // id={id}
             label={label}
-            onChangeText={props.field.onChange}
+           onChangeText={props.field.onChange}
             onBlur={props.field.onBlur}
             value={props.field.value}
-            accessoryRight={renderIcon}
+            //accessoryRight={renderIcon}
             secureTextEntry={securePassword}
           />
         )}

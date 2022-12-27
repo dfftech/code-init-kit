@@ -1,11 +1,10 @@
-// import StorageService from "../storage/StorageNative";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import AsyncStorage from "@react-native-community/async-storage";
 const APP_ID = "APP_STORE";
 class StorageService {
   static db: any = {};
-  static init() {
-    AsyncStorage.getAllKeys().then( (keys: any[]) => {
+  static  init() {
+     AsyncStorage.getAllKeys().then( (keys: any) => {
       keys.map((key: string) =>
           AsyncStorage.getItem(key)
               .then((data) => {

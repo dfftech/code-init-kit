@@ -31,7 +31,7 @@ const Dashboard = (props: any) => {
   return (
     <SafeAreaView>
       <Card header={PageHeader} style={{ margin: 8 }}>
-        <Text> asdfas </Text>
+
       </Card>
     </SafeAreaView>
   );

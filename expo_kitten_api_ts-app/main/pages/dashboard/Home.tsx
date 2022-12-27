@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import { Card, Layout, TopNavigation } from "@ui-kitten/components";
+import { Card, Layout, TopNavigation, Text } from "@ui-kitten/components";
 import { DrawerAction, PageTitle } from "../../shared/PageUtil";
 
 const Home = (props: any) => {
@@ -20,13 +20,13 @@ const Home = (props: any) => {
       };
     }, [])
   );
-  useEffect(() => {
-    // Do something
-  }, []);
 
   return (
     <SafeAreaView>
-      <Card header={PageHeader} style={{ margin: 8 }}></Card>
+
+      <Card header={PageHeader} style={{ margin: 8 }}>
+        <Text> Text </Text>
+      </Card>
     </SafeAreaView>
   );
 };

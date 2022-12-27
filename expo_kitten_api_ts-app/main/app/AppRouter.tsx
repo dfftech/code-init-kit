@@ -15,13 +15,11 @@ const Stack = createDrawerNavigator();
 
 function AppRouter({ theme } : any) {
   return (
-    <NavigationContainer linkin theme={theme}>
+    <NavigationContainer theme={theme}>
       <Stack.Navigator
-        headerMode={false}
         initialRouteName="SignIn"
-        openByDefault={false}
+        defaultStatus={'closed'}
         drawerContent={() => null}
-        drawerStyle={{ width: 0 }}
       >
         <Stack.Screen name="SignIn" component={SignIn} options={{ title: "Sign In" }} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ title: "Forgot Password" }} />
@@ -36,10 +34,8 @@ const AppDrawer = (props: any) => {
   const isWeb = Platform && Platform.OS === "web" ? true : false;
   return (
     <Stack.Navigator
-      headerShown={false}
       initialRouteName="Dashboard"
-      openByDefault={false}
-      drawerType={"back"}
+      defaultStatus={'closed'}
       drawerContent={(props: any) => <DrawerContent {...props} />}
     >
       <Stack.Screen name="Home" component={Home} />

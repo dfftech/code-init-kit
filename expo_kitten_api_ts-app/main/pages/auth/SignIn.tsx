@@ -5,10 +5,10 @@ import { unSecurePost } from "../../app/Http";
 import AppStorage from "../../app/AppStorage";
 
 import AuthLayout from "../../modules/auth/AuthLayout";
-import { Button, Card, TopNavigation } from "@ui-kitten/components";
+import {Button, Card, Text, TopNavigation} from "@ui-kitten/components";
 import { Loading, PageTitle } from "../../shared/PageUtil";
 import SignInForm from "../../modules/auth/SignInForm";
-import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import {useFocusEffect, useNavigation, useNavigationContainerRef} from "@react-navigation/native";
 import { Auth } from "../../entities/Auth";
 
 const SignIn = (props: any) => {
@@ -19,9 +19,8 @@ const SignIn = (props: any) => {
 
   const onFormSubmit =  (data: any) => {
     data.provider = "email";
-    console.log(data);
-    AppStorage.setData("RememberMe", data);
-    setLoadingIndicator(true);
+   // setLoadingIndicator(true);
+    navigation.navigate('AppHome');
     unSecurePost("/auth/signin", data, true).subscribe(async (resData) => {
       console.log("Resp Data: ", resData);
       setLoadingIndicator(false);
@@ -31,7 +30,7 @@ const SignIn = (props: any) => {
         } else {
            AppStorage.removeData("RememberMe");
         }
-        navigation.navigate("AppHome",{});
+        navigation.navigate('AppHome');
       }
     });
   };

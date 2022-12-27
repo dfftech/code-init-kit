@@ -16,10 +16,10 @@ export const AuthProvider = ({ navigation, children }: any) => {
   //   navigation.navigate("SignIn");
   // }
 
-  // useEffect(() => {
-  //   console.log("session user change:", sessionUser);
-  //   sessionUserEmit(sessionUser);
-  // }, [sessionUser]);
+  useEffect(() => {
+    console.log("session user change:", sessionUser);
+    sessionUserEmit(sessionUser);
+  }, [sessionUser]);
 
   useEffect(() => {
     console.log("history change:", navigation);
@@ -43,5 +43,6 @@ export const AuthProvider = ({ navigation, children }: any) => {
     setSessionUserCall: useCallback(setUser, []),
   };
 
+  // @ts-ignore
   return <AuthContext.Provider value={provider}>{children}</AuthContext.Provider>;
 };

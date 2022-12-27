@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { messageEvent } from "../app/AppEvent";
 
-import { ApplicationProvider } from "@ui-kitten/components";
-import { View } from "react-native";
+import {Text, View} from "react-native";
 
 const Message = () => {
   const [visible, setVisible] = React.useState(false);
@@ -31,7 +30,7 @@ const Message = () => {
   return (
     <View>
       {/*<SnackBar visible={visible} text={displayMessage} />*/}
-      {displayMessage}
+      <Text>{displayMessage} </Text>
     </View>
     // <Snackbar
     //   duration={5000}

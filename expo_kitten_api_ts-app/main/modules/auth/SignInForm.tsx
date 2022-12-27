@@ -10,6 +10,7 @@ const SignInForm = ({ control, errors, auth }: any) => {
   const navigation = useNavigation();
 
   const navigateForgotPassword = () => {
+    // @ts-ignore
     navigation.navigate("ForgotPassword");
   };
 
