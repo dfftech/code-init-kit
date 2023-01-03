@@ -36,13 +36,14 @@ const TypePassword = ({ id, label, attr, defaultValue, children, control, errors
             value={props.field.value}
             //accessoryRight={renderIcon}
             secureTextEntry={securePassword}
+            placeholder={label}
           />
         )}
         rules={rules}
         defaultValue={defaultValue}
         {...rest}
       />
-      <ErrorMessage errors={errors} name={attr} />
+      {/* <ErrorMessage errors={errors} name={attr} /> */}
     </View>
   );
 };

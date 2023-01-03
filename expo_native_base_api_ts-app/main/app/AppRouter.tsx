@@ -61,7 +61,7 @@ const DrawerContent = (props: any) => (
     <Text style={{ padding: 8 }} size="lg">
       {"AppName"}
     </Text>
-    <Drawer isOpen={true}>
+    <Drawer isOpen={false}>
       <DrawerItem label="DashBoard" onPress={() => props.navigation.navigate("Dashboard")} />
       <DrawerItem label="Home" onPress={() => props.navigation.navigate("Home")} />
       <DrawerItem

@@ -5,11 +5,11 @@ import { unSecurePost } from "../../../app/Http";
 import AppStorage from "../../../app/AppStorage";
 
 import AuthLayout from "../AuthLayout";
-import { Loading, PageTitle } from "../../../shared/PageUtil";
+import { AppTheme, Loading, PageTitle } from "../../../shared/PageUtil";
 import SignInForm from "./SignInForm";
 import { useFocusEffect, useNavigation, useNavigationContainerRef } from "@react-navigation/native";
 import { AuthEntity } from "../AuthEntity";
-import { View } from "native-base";
+import { Box, Button, Text, useColorMode, useColorModeValue } from "native-base";
 
 const SignIn = (props: any) => {
   const [auth, setAuth] = useState(new AuthEntity());
@@ -64,7 +64,12 @@ const SignIn = (props: any) => {
   return (
     <Fragment>
       <AuthLayout name={"Login"}>
-        <View> Login page</View>
+        <Box p="4" maxW="340" w="100%" safeArea>
+          <SignInForm control={control} errors={errors} auth={auth} />
+          <Button variant="outline" colorScheme={"warning"} onPress={handleSubmit(onFormSubmit)} accessibilityLabel="submit">
+            <Text>Submit</Text>
+          </Button>
+        </Box>
       </AuthLayout>
     </Fragment>
   );

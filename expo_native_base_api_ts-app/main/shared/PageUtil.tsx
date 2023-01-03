@@ -1,7 +1,7 @@
 import * as React from "react";
 import { StyleSheet, View } from "react-native";
 import { widthPercentageToDP as wp2dp, heightPercentageToDP as hp2dp } from "react-native-responsive-screen";
-import { HamburgerIcon, Heading, Spinner } from "native-base";
+import { HamburgerIcon, Heading, Spinner, useColorModeValue } from "native-base";
 
 export const OpenDrawer = (navigation: any) => navigation.openDrawer();
 export const DrawerAction = (navigation: any) => <HamburgerIcon onClick={() => OpenDrawer(navigation)}>Test </HamburgerIcon>;
@@ -60,3 +60,8 @@ export const AppStyles = StyleSheet.create({
     margin: 8,
   },
 });
+
+export const AppTheme = {
+  BOX_DARK_BG: "coolGray.800",
+  BOX_LIGHT_BG: "warmGray.50",
+};

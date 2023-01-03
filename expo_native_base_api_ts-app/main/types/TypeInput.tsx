@@ -14,12 +14,20 @@ const TypeInput = ({ id, label, attr, defaultValue, children, control, errors, r
         name={attr}
         id={id}
         fullWidth
-        render={(props: any) => <Input onChangeText={props.field.onChange} onBlur={props.field.onBlur} value={props.field.value} />}
+        render={(props: any) => (
+          <Input
+            variant="outline"
+            onChangeText={props.field.onChange}
+            onBlur={props.field.onBlur}
+            value={props.field.value}
+            placeholder={label}
+          />
+        )}
         rules={rules}
         defaultValue={defaultValue}
         {...rest}
       />
-      <ErrorMessage errors={errors} name={attr} />
+      {/* <ErrorMessage errors={errors} name={attr} /> */}
     </View>
   );
 };

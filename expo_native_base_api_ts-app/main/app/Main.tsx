@@ -5,32 +5,14 @@ import AppRouter from "./AppRouter";
 import Message from "../shared/Message";
 import { AuthProvider } from "./AuthContext";
 
-import { DarkTheme as NavigateDarkTheme, DefaultTheme as NavigateDefaultTheme } from "@react-navigation/native";
 import ProgressBar from "../shared/ProgressBar";
-import { extendTheme, NativeBaseProvider } from "native-base";
-const DefaultTheme = extendTheme({
-  ...NavigateDefaultTheme,
-  colors: {
-    ...NavigateDefaultTheme.colors,
-  },
-  config: {
-    initialColorMode: "light",
-  },
-});
-
-const DarkTheme = extendTheme({
-  ...NavigateDarkTheme,
-  colors: {
-    ...NavigateDarkTheme.colors,
-  },
-  config: {
-    initialColorMode: "dark",
-  },
-});
+import { NativeBaseProvider } from "native-base";
+import DarkTheme from "../theme/DarkTheme";
+import LightTheme from "../theme/LightTheme";
 
 const Main = () => {
   const colorScheme = UseColorScheme();
-  const theme = colorScheme === "dark" ? { ...DarkTheme } : { ...DefaultTheme };
+  const theme = colorScheme === "dark" ? { ...DarkTheme } : { ...LightTheme };
   return (
     <>
       <NativeBaseProvider theme={theme}>
