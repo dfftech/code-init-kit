@@ -21,7 +21,7 @@ const TypePassword = ({ id, label, attr, defaultValue, children, control, errors
   );
 
   return (
-    <View style={{ width: "100%", paddingTop: 8, paddingBottom: 8 }}>
+    <View style={{ paddingVertical: 4 }}>
       <Controller
         control={control}
         name={attr}
