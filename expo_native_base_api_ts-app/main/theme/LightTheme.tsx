@@ -3,9 +3,12 @@ import { extendTheme } from "native-base";
 
 const LightTheme = extendTheme({
   ...NavigateLightTheme,
-  //   colors: {
-  //     ...NavigateLightTheme.colors,
-  //   },
+  colors: {
+    ...NavigateLightTheme.colors,
+    amber: {
+      400: "#d97706",
+    },
+  },
   config: {
     initialColorMode: "light",
   },
@@ -16,11 +19,13 @@ const LightTheme = extendTheme({
         color: "coolGray.800",
       },
     },
-    Box: {
-      baseStyle: {
-        backgroundColor: "coolGray.50",
-      },
-    },
+    // Box: {
+    //   baseStyle: {
+    //     backgroundColor: "coolGray.50",
+    //     color: "warmGray.100",
+    //     shadow: 1,
+    //   },
+    // },
   },
 });
 

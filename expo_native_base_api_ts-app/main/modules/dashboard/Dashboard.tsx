@@ -8,7 +8,7 @@ const Dashboard = (props: any) => {
   const navigation = useNavigation();
   const [id, setId] = useState(null);
 
-  const PageHeader = () => <Heading size={"lg"}> DashBoard </Heading>;
+  const PageHeader = () => <Heading size={"xl"}> DashBoard </Heading>;
 
   useFocusEffect(
     React.useCallback(() => {

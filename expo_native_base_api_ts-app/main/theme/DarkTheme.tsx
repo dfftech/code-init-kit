@@ -3,9 +3,12 @@ import { extendTheme } from "native-base";
 
 const DarkTheme = extendTheme({
   ...NavigateDarkTheme,
-  //   colors: {
-  //     ...NavigateDarkTheme.colors,
-  //   },
+  colors: {
+    ...NavigateDarkTheme.colors,
+    amber: {
+      400: "#d97706",
+    },
+  },
   config: {
     initialColorMode: "dark",
   },
@@ -14,11 +17,6 @@ const DarkTheme = extendTheme({
     Text: {
       baseStyle: {
         color: "coolGray.50",
-      },
-    },
-    Box: {
-      baseStyle: {
-        backgroundColor: "coolGray.800",
       },
     },
   },

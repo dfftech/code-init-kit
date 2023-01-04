@@ -9,7 +9,7 @@ import { AppTheme, Loading, PageTitle } from "../../../shared/PageUtil";
 import SignInForm from "./SignInForm";
 import { useFocusEffect, useNavigation, useNavigationContainerRef } from "@react-navigation/native";
 import { AuthEntity } from "../AuthEntity";
-import { Box, Button, Text, useColorMode, useColorModeValue } from "native-base";
+import { Box, Button, Center, Container, Text, useColorMode, useColorModeValue, View, VStack } from "native-base";
 
 const SignIn = (props: any) => {
   const [auth, setAuth] = useState(new AuthEntity());
@@ -26,6 +26,7 @@ const SignIn = (props: any) => {
   const onFormSubmit = (data: any) => {
     data.provider = "email";
     // setLoadingIndicator(true);
+    AppStorage.setData("RememberMe", data);
     navigation.navigate("AppHome" as never);
     unSecurePost("/auth/signin", data, true).subscribe(async (resData) => {
       console.log("Resp Data: ", resData);
@@ -64,12 +65,14 @@ const SignIn = (props: any) => {
   return (
     <Fragment>
       <AuthLayout name={"Login"}>
-        <Box p="4" maxW="340" w="100%" safeArea>
-          <SignInForm control={control} errors={errors} auth={auth} />
-          <Button variant="outline" colorScheme={"warning"} onPress={handleSubmit(onFormSubmit)} accessibilityLabel="submit">
-            <Text>Submit</Text>
-          </Button>
-        </Box>
+        <View style={{ width: dimensionWidth > 400 ? 350 : dimensionWidth, paddingBottom: 16, paddingTop: 16 }}>
+          <VStack space={4} p="1" alignItems="center">
+            <SignInForm control={control} errors={errors} auth={auth} />
+            <Button size={"sm"} variant="solid" colorScheme={"amber"} onPress={handleSubmit(onFormSubmit)}>
+              Submit
+            </Button>
+          </VStack>
+        </View>
       </AuthLayout>
     </Fragment>
   );
