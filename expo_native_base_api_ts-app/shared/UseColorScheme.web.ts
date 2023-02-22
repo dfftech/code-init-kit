@@ -4,5 +4,5 @@ import {useColorScheme} from "react-native";
 
 export default function UseColorScheme() {
   return useColorScheme();
-  //return "dark";
+  //return "light";
 }

@@ -19,13 +19,18 @@ const LightTheme = extendTheme({
         color: "coolGray.800",
       },
     },
-    // Box: {
-    //   baseStyle: {
-    //     backgroundColor: "coolGray.50",
-    //     color: "warmGray.100",
-    //     shadow: 1,
-    //   },
-    // },
+    Heading: {
+      baseStyle: {
+        color: 'red.500'
+      },
+    },
+    Center: {
+      baseStyle: {
+        backgroundColor: "coolGray.50",
+        color: "warmGray.100",
+        shadow: 1,
+      },
+    },
   },
 });
 

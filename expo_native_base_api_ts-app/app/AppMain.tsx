@@ -3,15 +3,18 @@ import UseColorScheme from "../shared/UseColorScheme";
 
 import AppRouter from "./AppRouter";
 import Message from "../shared/Message";
-import { AuthProvider } from "./AuthContext";
+import { AuthProvider } from "../utils/AuthContext";
 
 import ProgressBar from "../shared/ProgressBar";
 import { NativeBaseProvider } from "native-base";
 import DarkTheme from "../theme/DarkTheme";
 import LightTheme from "../theme/LightTheme";
 
-const Main = () => {
+
+
+const AppMain = () => {
   const colorScheme = UseColorScheme();
+  console.log("colorScheme ------> ", colorScheme);
   const theme = colorScheme === "dark" ? { ...DarkTheme } : { ...LightTheme };
   return (
     <>
@@ -26,4 +29,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default AppMain;

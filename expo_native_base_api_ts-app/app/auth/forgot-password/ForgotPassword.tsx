@@ -3,9 +3,9 @@ import * as React from "react";
 import { useForm } from "react-hook-form";
 import TypeInput from "../../../types/TypeInput";
 import { ScrollView, View, Dimensions } from "react-native";
-import { unSecurePost } from "../../../app/Http";
+import { unSecurePost } from "../../../utils/Http";
 import AuthLayout from "../AuthLayout";
-import { messageEmit } from "../../../app/AppEvent";
+import { messageEmit } from "../../../utils/AppEvent";
 
 import { Loading, PageTitle } from "../../../shared/PageUtil";
 import ForgotPasswordForm from "./ForgotPasswordForm";

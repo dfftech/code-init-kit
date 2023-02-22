@@ -2,16 +2,16 @@ import React from "react";
 // import { Dimensions } from "react-native";
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { Platform, SafeAreaView } from "react-native";
-import SignIn from "../modules/auth/signin/SignIn";
-import ForgotPassword from "../modules/auth/forgot-password/ForgotPassword";
+import SignIn from "./auth/signin/SignIn";
+import ForgotPassword from "./auth/forgot-password/ForgotPassword";
 import { NavigationContainer } from "@react-navigation/native";
-import ResetPassword from "../modules/auth/reset-password/ResetPassword";
-import Home from "../modules/dashboard/Home";
-import Dashboard from "../modules/dashboard/Dashboard";
-import AppStorage from "./AppStorage";
-import { Box, Divider, Text, useTheme, VStack } from "native-base";
+import ResetPassword from "./auth/reset-password/ResetPassword";
+import Home from "./dashboard/Home";
+import Dashboard from "./dashboard/Dashboard";
+import AppStorage from "../utils/AppStorage";
+import { Box, Divider, Text, Heading, useTheme, VStack } from "native-base";
 
-const Stack = createDrawerNavigator();
+
 
 function AppRouter({ theme }: any) {
   const Drawer = createDrawerNavigator();
@@ -36,17 +36,17 @@ function AppRouter({ theme }: any) {
 }
 
 const AppDrawer = (props: any) => {
-  const theme = useTheme();
+    let theme: any = useTheme();
   const Drawer = createDrawerNavigator();
   const isWeb = Platform && Platform.OS === "web" ? true : false;
   console.log(props);
+  console.log("useTheme :: ", theme.dark)
   return (
     <Drawer.Navigator
       {...props}
       screenOptions={{
-        style: { backgroundColor: "red" },
         headerShown: true,
-        //  headerTintColor: theme[""],
+        headerTintColor:  theme.dark == true ? "white": "black",
       }}
       initialRouteName="Dashboard"
       defaultStatus={"closed"}
@@ -63,9 +63,9 @@ const DrawerContent = (props: any) => (
     <DrawerContentScrollView {...props} safeArea placement="left">
       <VStack divider={<Divider />} space="1">
         <Box px="4" my={4}>
-          <Text bold fontSize="lg">
-            {"AppName"}
-          </Text>
+          <Heading bold fontSize="lg">
+            AppName
+          </Heading>
         </Box>
 
         <DrawerItem label="DashBoard" onPress={() => props.navigation.navigate("Dashboard")} />

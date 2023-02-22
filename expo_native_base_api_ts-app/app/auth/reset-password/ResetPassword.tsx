@@ -3,9 +3,9 @@ import { ScrollView, View, Dimensions } from "react-native";
 
 import { useForm } from "react-hook-form";
 
-import { unSecurePost } from "../../../app/Http";
+import { unSecurePost } from "../../../utils/Http";
 import AuthLayout from "../AuthLayout";
-import { messageEmit } from "../../../app/AppEvent";
+import { messageEmit } from "../../../utils/AppEvent";
 import { useFocusEffect } from "@react-navigation/native";
 import { AuthEntity } from "../AuthEntity";
 import { useEffect, useState } from "react";

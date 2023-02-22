@@ -1,7 +1,7 @@
 import React from "react";
-import UseCachedResources from "./main/shared/UseCachedResources";
-import Main from "./main/app/Main";
-import "./main/app/FocusGlow";
+import UseCachedResources from "./shared/UseCachedResources";
+import AppMain from "./app/AppMain";
+import "./utils/FocusGlow";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
   } else {
     return (
       <SafeAreaProvider>
-        <Main />
+        <AppMain />
       </SafeAreaProvider>
     );
   }

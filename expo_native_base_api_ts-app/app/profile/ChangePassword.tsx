@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { View, StyleSheet, SafeAreaView, ScrollView, Dimensions } from "react-native";
 
 import TypePassword from "../../types/TypePassword";
-import { messageEmit, sessionUserEvent } from "../../app/AppEvent";
+import { messageEmit, sessionUserEvent } from "../../utils/AppEvent";
 
 import { useForm } from "react-hook-form";
-import AppStorage from "../../app/AppStorage";
-import { post } from "../../app/Http";
+import AppStorage from "../../utils/AppStorage";
+import { post } from "../../utils/Http";
 
 const ChangePassword = ({ name, children }: any) => {
   const [changePassword] = useState({ oldPassword: "", newPassword: "" });

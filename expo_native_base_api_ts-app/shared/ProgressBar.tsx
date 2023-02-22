@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { loaderEvent } from "../app/AppEvent";
+import { loaderEvent } from "../utils/AppEvent";
 import { StyleSheet, ActivityIndicator, View } from "react-native";
 
 const ProgressBar = () => {

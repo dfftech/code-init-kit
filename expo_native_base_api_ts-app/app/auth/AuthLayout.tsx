@@ -2,7 +2,7 @@ import { Center, Heading, useColorMode } from "native-base";
 import React from "react";
 import { Dimensions, View, Image, StyleSheet, SafeAreaView } from "react-native";
 
-const BgImage = require("../../../assets/images/LoginBg.jpg");
+const BgImage = require("../../assets/images/LoginBg.jpg");
 
 const AuthLayout = ({ name, children }: any) => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -12,8 +12,8 @@ const AuthLayout = ({ name, children }: any) => {
         <Image source={BgImage} style={styles.image} />
       </View>
       <View style={styles.card}>
-        <Center w="64" bg={colorMode === "dark" ? "coolGray.800" : "warmGray.50"} rounded="md" shadow={3}>
-          <Heading>{name}</Heading>
+        <Center w="300" rounded="md" shadow={3}  style={{paddingTop: 32, paddingBottom: 32}}       >
+          <Heading >{name}</Heading>
           {children}
         </Center>
       </View>

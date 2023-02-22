@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Dimensions } from "react-native";
 import { useForm } from "react-hook-form";
-import { unSecurePost } from "../../../app/Http";
-import AppStorage from "../../../app/AppStorage";
+import { unSecurePost } from "../../../utils/Http";
+import AppStorage from "../../../utils/AppStorage";
 
 import AuthLayout from "../AuthLayout";
 import { AppTheme, Loading, PageTitle } from "../../../shared/PageUtil";
@@ -65,14 +65,12 @@ const SignIn = (props: any) => {
   return (
     <Fragment>
       <AuthLayout name={"Login"}>
-        <View style={{ width: dimensionWidth > 400 ? 350 : dimensionWidth, paddingBottom: 16, paddingTop: 16 }}>
-          <VStack space={4} p="1" alignItems="center">
+          <VStack space={4} p="1" alignItems="center" >
             <SignInForm control={control} errors={errors} auth={auth} />
-            <Button size={"sm"} variant="solid" colorScheme={"amber"} onPress={handleSubmit(onFormSubmit)}>
+            <Button size={"sm"}  onPress={handleSubmit(onFormSubmit)}>
               Submit
             </Button>
           </VStack>
-        </View>
       </AuthLayout>
     </Fragment>
   );

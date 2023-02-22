@@ -6,7 +6,7 @@ import * as React from "react";
 export default function UseCachedResources() {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
 
-  // Load any resources or data that we need prior to rendering the app
+  // Load any resources or data that we need prior to rendering the utils
   React.useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
@@ -15,8 +15,8 @@ export default function UseCachedResources() {
         // Load fonts
         await Font.loadAsync({
           ...Ionicons.font,
-          gravtrac: require("../../assets/fonts/gravtrac.ttf"),
-          SourceSansPro: require("../../assets/fonts/SourceSansPro.ttf"),
+          gravtrac: require("../assets/fonts/gravtrac.ttf"),
+          SourceSansPro: require("../assets/fonts/SourceSansPro.ttf"),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service

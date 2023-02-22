@@ -5,7 +5,7 @@ import { Controller, useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 
 import { TouchableWithoutFeedback } from "react-native";
-import { Icon, Input } from "native-base";
+import {Icon, Input, Text} from "native-base";
 
 const TypePassword = ({ id, label, attr, defaultValue, children, control, errors, rules, required, disabled, ...rest }: any) => {
   const [securePassword, setSecurePassword] = useState(true);
@@ -43,7 +43,7 @@ const TypePassword = ({ id, label, attr, defaultValue, children, control, errors
         defaultValue={defaultValue}
         {...rest}
       />
-      {/* <ErrorMessage errors={errors} name={attr} /> */}
+        <Text fontSize="xs" style={{color: "red"}}><ErrorMessage errors={errors} name={attr} /> </Text>
     </View>
   );
 };

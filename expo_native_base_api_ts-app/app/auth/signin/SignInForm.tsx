@@ -41,7 +41,7 @@ const SignInForm = ({ control, errors, auth }: any) => {
           rules={{ required: "Password is required" }}
         />
         <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-          <Button onPress={() => navigateForgotPassword()} size="sm" variant="ghost" colorScheme="primary">
+          <Button onPress={() => navigateForgotPassword()} size="sm" variant="ghost" colorScheme="emerald">
             Forgot Password ?
           </Button>
 

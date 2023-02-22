@@ -3,7 +3,7 @@ import { View } from "react-native";
 
 import { Controller, useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import { Input } from "native-base";
+import {Input, Text} from "native-base";
 //import { TextInput } from "react-native";
 
 const TypeInput = ({ id, label, attr, defaultValue, children, control, errors, rules, required, disabled, ...rest }: any) => {
@@ -20,14 +20,14 @@ const TypeInput = ({ id, label, attr, defaultValue, children, control, errors, r
             onChangeText={props.field.onChange}
             onBlur={props.field.onBlur}
             value={props.field.value}
-            placeholder={label}
+             placeholder={label}
           />
         )}
         rules={rules}
         defaultValue={defaultValue}
         {...rest}
       />
-      {/* <ErrorMessage errors={errors} name={attr} /> */}
+        <Text fontSize="xs" style={{color: "red"}}><ErrorMessage errors={errors} name={attr} /> </Text>
     </View>
   );
 };

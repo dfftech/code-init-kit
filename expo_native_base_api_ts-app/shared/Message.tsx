@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { messageEvent } from "../app/AppEvent";
+import { messageEvent } from "../utils/AppEvent";
 
 import {Text, View} from "react-native";
 
